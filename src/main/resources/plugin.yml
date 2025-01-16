@@ -1,12 +1,12 @@
 name: EnchantBookPlus
 version: '${project.version}'
-author: Cloudnode
-main: pro.cloudnode.smp.enchantbookplus.EnchantBookPlus
-description: "Combine enchantment books to achieve levels above vanilla"
-api-version: '1.20'
+author: Stars
+main: cn.stars.enchantbookplus.EnchantBookPlus
+description: "允许将附魔书合并至超过原版限制的等级"
+api-version: 1.21
 softdepend:
   - AnvilUnlocker
 commands:
   enchantbookplus:
-    description: "EnchantBookPlus main command"
+    description: "EnchantBookPlus 主命令"
     usage: "/<command>"

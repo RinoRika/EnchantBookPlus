@@ -1,4 +1,4 @@
-package pro.cloudnode.smp.enchantbookplus;
+package cn.stars.enchantbookplus;
 
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("all")
 public final class MainCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
@@ -30,11 +31,11 @@ public final class MainCommand implements CommandExecutor, TabCompleter {
     public static boolean overview(final @NotNull CommandSender sender) {
         final @NotNull EnchantBookPlus plugin = EnchantBookPlus.getInstance();
         sender.sendMessage(MiniMessage.miniMessage()
-                .deserialize("<green><name></green> <white>v<version> by</white> <gray><author></gray>", Placeholder.unparsed("name", plugin
+                .deserialize("<green><name></green> <white>v<version> by</white> <gray><author></gray>.", Placeholder.unparsed("name", plugin
                         .getPluginMeta().getName()), Placeholder.unparsed("version", plugin.getPluginMeta()
                         .getVersion()), Placeholder.unparsed("author", String.join(", ", plugin.getPluginMeta()
                         .getAuthors()))));
-
+        sender.sendMessage(MiniMessage.miniMessage().deserialize(" <gray>> /enchantbookplus reload -</gray> <white>重载配置.</white>"));
         return true;
     }
 
@@ -47,7 +48,7 @@ public final class MainCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         EnchantBookPlus.getInstance().reload();
-        sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>(!) Plugin configuration reloaded."));
+        sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>(!) 插件配置已重载."));
         return true;
     }
 }

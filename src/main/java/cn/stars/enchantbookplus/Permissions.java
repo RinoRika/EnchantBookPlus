@@ -1,4 +1,4 @@
-package pro.cloudnode.smp.enchantbookplus;
+package cn.stars.enchantbookplus;
 
 import org.bukkit.enchantments.Enchantment;
 import org.jetbrains.annotations.NotNull;

@@ -1,4 +1,4 @@
-package pro.cloudnode.smp.enchantbookplus;
+package cn.stars.enchantbookplus;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;

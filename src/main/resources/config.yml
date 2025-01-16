@@ -1,21 +1,23 @@
-# List of enchantments for which to enable upgrading above the vanilla max levels using an anvil.
+# 允许在铁砧中升级更高等级附魔的列表
 enchantments:
-    # Enchantment name (same as in the /enchant command).
-    # Set this to "ALL" to enable upgrading for all other enchantments not listed here.
-    # NOTE: Enchantments that on Vanilla have a max level of 1 (e.g. Silk Touch, Mending, Curse of Vanishing, Infinity) etc. are always ignored by this plugin.
+    # 附魔的名称 (id应和/enchant指令中的一致, 如: efficiency)
+    # 添加一个 "ALL" 来设置除了已经设定以外的所有附魔
+    # 警告: 在原版无视等级的附魔 (如: 精准采集、无限）将被本插件无视
     -   name: efficiency
-        # Maximum level to which the enchantment can be upgraded.
-        # For relative levels above the vanilla max level, use e.g. "+1". E.g. +1 for Protection will allow upgrading to Protection V. For Efficiency, +1 will allow upgrading to Efficiency VI.
-        # If you use "+" make sure to set the value in quotes, e.g. "+1" instead of +1
-        # To allow upgrading to any level, do not set this value. Note: enchantment levels above 255 are not supported by Minecraft.
-        max-level: 10
+        # 该附魔允许被升级的最大等级
+        # 格式:
+        # 1. 直接写数字等级(如: 10 -> 允许效率X) 表示允许的最大等级
+        # 2. 写拓展的等级(如: "+1" -> 允许效率5+1->VI) 表示在原版最大等级的基础上拓展的等级
+        # 你可以删去max-level, 代表不限制最大等级
+        # 警告: 原版仅支持至255级附魔
+        max-level: 6
 
-        # The XP cost (in levels) added to the vanilla cost
-        # Use "*" prefix to multiply by the enchantment level, e.g. "*10" will cost XP levels per enchantment level above vanilla (e.g. 20XP for Efficiency VII)
-        # If you use "*" make sure to set the value in quotes, e.g. "*10" instead of *10
-        # You can also just provide a flat value for all levels, e.g. "10" will cost 10 XP levels regardless of the enchantment level
-        cost: "*150"
+        # 在铁砧内附魔该附魔书在原版基础上额外消耗的经验
+        # 格式:
+        # 1. 直接写数字经验等级(如: 50 -> 消耗50XP) 表示消耗的经验等级，无论附魔等级多少
+        # 2. 写增加的经验等级(如: "*50" -> 消耗上一级的经验+50XP) 表示在上一级基础上额外消耗的经验等级
+        cost: "*50"
 
-    -   name: ALL
-        max-level: "+1"
-        cost: 100
+    #-   name: ALL
+    #    max-level: "+1"
+    #    cost: 100

@@ -1,10 +1,11 @@
-package pro.cloudnode.smp.enchantbookplus;
+package cn.stars.enchantbookplus;
 
+import cn.stars.enchantbookplus.listener.InventoryListener;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import pro.cloudnode.smp.enchantbookplus.event.PrepareAnvil;
+import cn.stars.enchantbookplus.listener.PrepareAnvilListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,9 @@ public final class EnchantBookPlus extends JavaPlugin {
      * Register event listeners.
      */
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
+        getServer().getPluginManager().registerEvents(new PrepareAnvilListener(), this);
+        getServer().getPluginManager().registerEvents(new InventoryListener(), this);
     }
-
     /**
      * Config enchantments cache
      */
@@ -72,7 +73,7 @@ public final class EnchantBookPlus extends JavaPlugin {
             enchants = ConfigEnchantmentEntry.config(getConfig().get("enchantments"));
         }
         catch (final @NotNull Exception exception) {
-            getLogger().log(Level.SEVERE, "Failed to load config", exception);
+            getLogger().log(Level.SEVERE, "重载插件时出错! 请检查插件配置", exception);
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -87,11 +88,14 @@ public final class EnchantBookPlus extends JavaPlugin {
 
         registerEvents();
         saveDefaultConfig();
+
+        getLogger().log(Level.INFO, "成功加载插件!");
+
         reload();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getLogger().log(Level.INFO, "成功关闭插件!");
     }
 }
